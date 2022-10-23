@@ -9,27 +9,32 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text("Register Account", style: headingStyle),
-                SizedBox(
-                  height: getProportionateScreenHeight(250),
-                  width: double.infinity,
-                  child: Image.asset(
-                    "assets/images/signup.png",
-                    scale: 2.0,
+    return Padding(
+      padding: const EdgeInsets.only(top: 150.0),
+      child: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(20)),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    "Register Account",
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 162, 58, 232),
+                      fontSize: getProportionateScreenWidth(28),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                SignUpForm(),
-                SizedBox(height: getProportionateScreenHeight(20)),
-              ],
+                  const Padding(
+                    padding: EdgeInsets.only(top: 30.0),
+                    child: SignUpForm(),
+                  ),
+                  SizedBox(height: getProportionateScreenHeight(20)),
+                ],
+              ),
             ),
           ),
         ),

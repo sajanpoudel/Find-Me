@@ -5,10 +5,10 @@ import 'package:mobileapp/screens/splash/prompt_screen.dart';
 import 'package:mobileapp/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-Future <void> main() async{
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
-    runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Blood DOnation',
+      title: 'Find Me',
       theme: theme(),
       home: const PromptScreen(),
       // We use routeName so that we dont need to remember the name

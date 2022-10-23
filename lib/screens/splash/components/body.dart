@@ -16,66 +16,41 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   int currentPage = 0;
-  List<Map<String, String>> splashData = [
-    {
-      "text": "Once a blood donor, always a lifesaver!",
-      "image": "assets/images/promptpage1.png"
-    },
-    {
-      "text": "Donate Blood, Donate Life !",
-      "image": "assets/images/promptpage2.png"
-    },
-  ];
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              flex: 4,
-              child: PageView.builder(
-                onPageChanged: (value) {
-                  setState(() {
-                    currentPage = value;
-                  });
-                },
-                itemCount: splashData.length,
-                itemBuilder: (context, index) => SplashContent(
-                  image: splashData[index]["image"],
-                  text: splashData[index]['text'],
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(20)),
-                child: Column(
-                  children: <Widget>[
-                    const Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        splashData.length,
-                        (index) => buildDot(index: index),
-                      ),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 150.0),
+            child: Column(
+              children: <Widget>[
+                Image.asset("assets/images/splash_screen.gif",
+                    height: 500, width: double.infinity),
+                Flexible(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: getProportionateScreenWidth(20)),
+                    child: Column(
+                      children: <Widget>[
+                        DefaultButton(
+                          text: "Start Searching Your Lost Items",
+                          press: () {
+                            Navigator.pushNamed(
+                                context, SignInScreen.routeName);
+                          },
+                        ),
+                        const Spacer(),
+                      ],
                     ),
-                    const Spacer(flex: 1),
-                    DefaultButton(
-                      text: "Ready To Donate ?",
-                      press: () {
-                        Navigator.pushNamed(context, SignInScreen.routeName);
-                      },
-                    ),
-                    const Spacer(),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/screens/home/items.dart';
 
 import '../../../size_config.dart';
 import 'home_header.dart';
-import 'Peoplelist.dart';
-import 'bloodimg.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
   @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: getProportionateScreenHeight(20)),
-            const HomeHeader(),
-            SizedBox(height: getProportionateScreenWidth(10)),
-            const BloodImage(),
-            SizedBox(height: getProportionateScreenWidth(30)),
-            PeopleList(),
-            SizedBox(height: getProportionateScreenWidth(30)),
-          ],
-        ),
+      child: Column(
+        children: [
+          SizedBox(height: getProportionateScreenHeight(20)),
+          const HomeHeader(),
+          SizedBox(height: getProportionateScreenHeight(20)),
+          const Items(),
+          SizedBox(height: getProportionateScreenHeight(20)),
+        ],
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/components/custom_surfix_icon.dart';
 import 'package:mobileapp/components/default_button.dart';
@@ -5,6 +7,7 @@ import 'package:mobileapp/components/form_error.dart';
 import 'package:mobileapp/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -46,6 +49,13 @@ class _SignUpFormState extends State<SignUpForm> {
     }
   }
 
+  addData() {
+    Map<String, dynamic> demoData = {"name": fullName, "email": email};
+    CollectionReference collectionReference =
+        FirebaseFirestore.instance.collection("students");
+    collectionReference.add(demoData);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -53,8 +63,6 @@ class _SignUpFormState extends State<SignUpForm> {
       child: Column(
         children: [
           buildFullNameFormField(),
-          SizedBox(height: getProportionateScreenHeight(28)),
-          buildBloodGroup(),
           SizedBox(height: getProportionateScreenHeight(28)),
           buildEmailFormField(),
           SizedBox(height: getProportionateScreenHeight(28)),
@@ -72,6 +80,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   UserCredential newUser =
                       await _auth.createUserWithEmailAndPassword(
                           email: email!, password: password!);
+                  addData();
                   Navigator.pushNamed(context, HomeScreen.routeName);
                 }
               } catch (e) {
@@ -180,21 +189,10 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildFullNameFormField() {
     return TextFormField(
       onSaved: (newValue) => fullName = newValue,
+      onChanged: ((value) => fullName = value),
       decoration: const InputDecoration(
         labelText: "Full Name",
         hintText: "Enter your full name",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
-      ),
-    );
-  }
-
-  TextFormField buildBloodGroup() {
-    return TextFormField(
-      onSaved: (newValue) => fullName = newValue,
-      decoration: const InputDecoration(
-        labelText: "Blood Group",
-        hintText: "Enter your blood group type",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
       ),

@@ -15,21 +15,6 @@ class SplashContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Spacer(),
-        Flexible(
-          child: Text(
-            "Blood Bank",
-            style: TextStyle(
-              fontSize: getProportionateScreenWidth(36),
-              color: kPrimaryColor,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        Text(
-          text!,
-          textAlign: TextAlign.center,
-        ),
         const Spacer(flex: 1),
         Flexible(
           flex: 3,

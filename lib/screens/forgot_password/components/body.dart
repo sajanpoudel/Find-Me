@@ -8,6 +8,8 @@ import 'package:mobileapp/size_config.dart';
 import '../../../constants.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -27,12 +29,12 @@ class Body extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
+              const Text(
                 "Please enter your email and we will send \nyou a link to return to your account",
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.1),
-              ForgotPassForm(),
+              const ForgotPassForm(),
             ],
           ),
         ),
@@ -42,7 +44,10 @@ class Body extends StatelessWidget {
 }
 
 class ForgotPassForm extends StatefulWidget {
+  const ForgotPassForm({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _ForgotPassFormState createState() => _ForgotPassFormState();
 }
 
@@ -85,7 +90,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
               }
               return null;
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Email",
               hintText: "Enter your email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -98,13 +103,11 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
           DefaultButton(
             text: "Continue",
             press: () {
-              if (_formKey.currentState!.validate()) {
-             
-              }
+              if (_formKey.currentState!.validate()) {}
             },
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
-          NoAccountText(),
+          const NoAccountText(),
         ],
       ),
     );
