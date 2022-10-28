@@ -1,4 +1,4 @@
-   ##FIND ME
+   !!FIND ME
 
 Find Me is an cross-platform mobile application where you can find any of your lost items
 
