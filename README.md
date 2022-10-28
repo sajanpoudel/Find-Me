@@ -2,6 +2,9 @@
 
 Find Me is an cross-platform mobile application where you can find any of your lost items
 
+![original](https://user-images.githubusercontent.com/35656849/198723651-6a28e072-09c6-4cfb-8865-a8f551ce9d8a.png)
+
+
 **Inspiration
 
 Losing something valuable to you is not a good feeling. I lost my bag full of personal documents on my way to Texas last week in a hackathon program at University of Texas at Austin. I panicked and it was important. Someone could have found it and I wished I would have known the person somehow or that person could let me know that he/she had found it. So I came up with an idea of building an app that lets people know about what they have lost.
