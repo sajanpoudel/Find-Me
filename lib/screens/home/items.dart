@@ -19,6 +19,7 @@ const TextStyle ktextStyle = TextStyle(
 
 class _ItemsState extends State<Items> {
   FirebaseStorage storage = FirebaseStorage.instance;
+  late final Future<List<Map<String, dynamic>>> _items = _loadImages();
   // Retriew the uploaded images
   // This function is called when the app launches for the first time or when an image is uploaded or deleted
   Future<List<Map<String, dynamic>>> _loadImages() async {
@@ -50,7 +51,7 @@ class _ItemsState extends State<Items> {
       padding: const EdgeInsets.only(top: 20.0),
       child: SizedBox(
         child: FutureBuilder(
-          future: _loadImages(),
+          future: _items,
           builder:
               (context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
