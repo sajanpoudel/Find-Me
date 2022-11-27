@@ -16,7 +16,7 @@ If someone finds anything, they just only submit a photo of it, add their name, 
 
 **How we built it?
 
-We built this app by using flutter, google cloud storage, Firestore, Google map API, Dart, Java, 3D graphics, kotlin, Google login API and Firebase auth.
+We built this app by using flutter, Firestore, Google map API, Dart, 3D graphics, Google login API and Firebase auth.
 
 
 **What are the Future Steps?
