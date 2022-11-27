@@ -18,17 +18,6 @@ If someone finds anything, they just only submit a photo of it, add their name, 
 
 We built this app by using flutter, google cloud storage, Firestore, Google map API, Dart, Java, 3D graphics, kotlin, Google login API and Firebase auth.
 
-**Obstacles we faced while developing this application
-
-We faced multiple bugs while integrating different APIs and handling databases. The addition of 3D graphics also presented some challenges for us, but in the end, it was simple. Additionally, there were various obstacles and hurdles in developing a user-friendly user interface.
-
-**Accomplishments that we achieved
-
-• Facilitating the ability to call the owner of the item directly. • Facilitating the user in securely storing their data and making it available to the user. • We accomplished good use of graphics and UI design. • Finally, we are pleased with our accomplishments and teamwork for carrying out our plan effectively within the time limit.
-
-**What we learned?
-
-We learned and enjoyed our project a lot. We improved our abilities to cooperate and speak with one another. While creating the application, we also gained knowledge about 3D graphics integration. We learned to connect the google API while developing an app in flutter.
 
 **What are the Future Steps?
 
