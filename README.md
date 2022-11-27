@@ -1,7 +1,7 @@
   FIND ME
   
   
-Find Me is an cross-platform mobile application where you can find any of your lost items
+Find Me is an cross-platform mobile application where you can find any of your lost items.
 
 ![original](https://user-images.githubusercontent.com/35656849/198723651-6a28e072-09c6-4cfb-8865-a8f551ce9d8a.png)
 
