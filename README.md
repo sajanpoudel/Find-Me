@@ -22,3 +22,4 @@ We built this app by using flutter, Firestore, Google map API, Dart, 3D graphics
 **What are the Future Steps?
 
 In order to monitor exactly where the individual found the item, we intend to integrate the Google Maps function in the near future. For the various products, we also intend to integrate the meta data option. To filter and display items within a certain distance, we might implement a distance Search function.
+
