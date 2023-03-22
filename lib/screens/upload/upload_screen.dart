@@ -44,9 +44,9 @@ class _UploadItemState extends State<UploadItem> {
   // Then upload to Firebase Storage
   Future<void> _upload(String inputSource) async {
     final picker = ImagePicker();
-    PickedFile? pickedImage;
+    XFile? pickedImage;
     try {
-      pickedImage = await picker.getImage(
+      pickedImage = await picker.pickImage(
           source: inputSource == 'camera'
               ? ImageSource.camera
               : ImageSource.gallery,
