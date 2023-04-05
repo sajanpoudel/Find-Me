@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mobileapp/components/custom_bottom_nav_bar.dart';
 import 'package:mobileapp/enums.dart';
 
+import 'upload_form.dart';
+
 const kTextFieldDecoration = InputDecoration(
   contentPadding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
   border: OutlineInputBorder(
@@ -43,6 +45,19 @@ class _UploadItemState extends State<UploadItem> {
   // Select and image from the gallery or take a picture with the camera
   // Then upload to Firebase Storage
   Future<void> _upload(String inputSource) async {
+    final missing = missingUploadFields(
+      title: title,
+      uploader: uploader,
+      contact: contact,
+      description: description,
+    );
+    if (missing.isNotEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Please fill in: ${missing.join(', ')}')),
+      );
+      return;
+    }
+
     final picker = ImagePicker();
     XFile? pickedImage;
     try {
