@@ -85,14 +85,31 @@ class _UploadItemState extends State<UploadItem> {
               'description': description!
             }));
 
-        // Refresh the UI
-        setState(() {});
+        _clearForm();
       } on FirebaseException catch (error) {
         debugPrint(error.toString());
+        _showMessage('The upload failed: ${error.message ?? error.code}');
       }
     } catch (err) {
       debugPrint(err.toString());
+      _showMessage('Could not open the picker.');
     }
+  }
+
+  void _showMessage(String text) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+  }
+
+  // Empties the fields once a photo is uploaded and refreshes the list
+  void _clearForm() {
+    titleController.clear();
+    uploaderController.clear();
+    contactController.clear();
+    descriptionController.clear();
+    setState(() {
+      title = uploader = contact = description = null;
+    });
   }
 
   // Retrieve the uploaded images
@@ -221,17 +238,7 @@ class _UploadItemState extends State<UploadItem> {
                       icon: const Icon(Icons.camera),
                       label: const Text('camera')),
                   ElevatedButton.icon(
-                      onPressed: () {
-                        _upload('gallery');
-                        titleController.clear();
-                        contactController.clear();
-                        uploaderController.clear();
-                        descriptionController.clear();
-                        //  setState(() {
-                        //    title ='';
-                        //    description ='';
-                        //  });
-                      },
+                      onPressed: () => _upload('gallery'),
                       icon: const Icon(Icons.library_add),
                       label: const Text('Gallery')),
                 ],
