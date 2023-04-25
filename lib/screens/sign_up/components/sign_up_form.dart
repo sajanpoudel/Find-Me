@@ -1,13 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/components/custom_surfix_icon.dart';
 import 'package:mobileapp/components/default_button.dart';
 import 'package:mobileapp/components/form_error.dart';
 import 'package:mobileapp/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';

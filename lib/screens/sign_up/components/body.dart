@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapp/constants.dart';
 import 'package:mobileapp/size_config.dart';
 
 import 'sign_up_form.dart';
