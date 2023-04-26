@@ -3,7 +3,6 @@ import 'package:mobileapp/constants.dart';
 import 'package:mobileapp/screens/sign_in/sign_in_screen.dart';
 import 'package:mobileapp/size_config.dart';
 
-import '../components/splash_content.dart';
 import '../../../components/default_button.dart';
 
 /// Main content of the splash screen.
