@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/routes.dart';
-// import 'package:mobileapp/screens/profile/profile_screen.dart';
 import 'package:mobileapp/screens/splash/prompt_screen.dart';
 import 'package:mobileapp/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,8 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Find Me',
       theme: theme(),
       home: const PromptScreen(),
-      // We use routeName so that we dont need to remember the name
-      // initialRoute: SplashScreen.routeName,
+      // Named routes are listed in routes.dart
       routes: routes,
     );
   }
