@@ -68,10 +68,10 @@ class _UploadItemState extends State<UploadItem> {
         // Refresh the UI
         setState(() {});
       } on FirebaseException catch (error) {
-        print(error);
+        debugPrint(error.toString());
       }
     } catch (err) {
-      print(err);
+      debugPrint(err.toString());
     }
   }
 
