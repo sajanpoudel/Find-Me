@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart' as path;
 import 'package:image_picker/image_picker.dart';
-import 'package:mobileapp/components/coustom_bottom_nav_bar.dart';
+import 'package:mobileapp/components/custom_bottom_nav_bar.dart';
 import 'package:mobileapp/enums.dart';
 
 const kTextFieldDecoration = InputDecoration(
