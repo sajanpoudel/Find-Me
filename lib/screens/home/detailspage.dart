@@ -155,9 +155,9 @@ class DetailPage extends StatelessWidget {
                                 await FlutterPhoneDirectCaller.callNumber(
                                     contact!);
                               },
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text(
                                     "Call Now",
                                     style: TextStyle(fontSize: 25.0),

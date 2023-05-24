@@ -16,9 +16,9 @@ class SignInScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
-        Scaffold(
+        const Scaffold(
           backgroundColor: Colors.transparent,
-          body: Body(),
+          body: const Body(),
         ),
       ],
     );
