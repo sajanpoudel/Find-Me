@@ -75,7 +75,7 @@ class _UploadItemState extends State<UploadItem> {
     }
   }
 
-  // Retriew the uploaded images
+  // Retrieve the uploaded images
   // This function is called when the app launches for the first time or when an image is uploaded or deleted
   Future<List<Map<String, dynamic>>> _loadImages() async {
     List<Map<String, dynamic>> files = [];
