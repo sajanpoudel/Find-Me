@@ -51,7 +51,11 @@ class _UploadItemState extends State<UploadItem> {
               : ImageSource.gallery,
           maxWidth: 1920);
 
-      final String fileName = path.basename(pickedImage!.path);
+      if (pickedImage == null) {
+        return; // the user closed the picker without choosing a photo
+      }
+
+      final String fileName = path.basename(pickedImage.path);
       File imageFile = File(pickedImage.path);
 
       try {
