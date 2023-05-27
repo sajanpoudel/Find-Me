@@ -35,10 +35,10 @@ class _UploadItemState extends State<UploadItem> {
   String? description;
   String? uploader;
   String? contact;
-  final texEditingControllertitle = TextEditingController();
-  final textEditingControllerdescription = TextEditingController();
-  final TextEditingControlleruploader = TextEditingController();
-  final TextEditingControllercontact = TextEditingController();
+  final titleController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final uploaderController = TextEditingController();
+  final contactController = TextEditingController();
   // Select and image from the gallery or take a picture with the camera
   // Then upload to Firebase Storage
   Future<void> _upload(String inputSource) async {
@@ -137,7 +137,7 @@ class _UploadItemState extends State<UploadItem> {
 
               //Item Name
               TextField(
-                controller: texEditingControllertitle,
+                controller: titleController,
                 keyboardType: TextInputType.text,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
@@ -152,7 +152,7 @@ class _UploadItemState extends State<UploadItem> {
 
               //Uploaded By
               TextField(
-                controller: TextEditingControlleruploader,
+                controller: uploaderController,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   uploader = value;
@@ -168,7 +168,7 @@ class _UploadItemState extends State<UploadItem> {
 
               ///contact info
               TextField(
-                controller: TextEditingControllercontact,
+                controller: contactController,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   contact = value;
@@ -184,7 +184,7 @@ class _UploadItemState extends State<UploadItem> {
 
               ///description
               TextField(
-                controller: textEditingControllerdescription,
+                controller: descriptionController,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   description = value;
@@ -207,10 +207,10 @@ class _UploadItemState extends State<UploadItem> {
                   ElevatedButton.icon(
                       onPressed: () {
                         _upload('gallery');
-                        texEditingControllertitle.clear();
-                        TextEditingControllercontact.clear();
-                        TextEditingControlleruploader.clear();
-                        textEditingControllerdescription.clear();
+                        titleController.clear();
+                        contactController.clear();
+                        uploaderController.clear();
+                        descriptionController.clear();
                         //  setState(() {
                         //    title ='';
                         //    description ='';
