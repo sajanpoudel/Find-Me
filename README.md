@@ -22,3 +22,28 @@ In order to monitor exactly where the individual found the item, we intend to in
 <h2>Demo: </h2>
 
  ![image description](https://github.com/sajanpoudel/Find-Me/blob/demo-video/videoplayback.gif) 
+
+
+## Run the app
+
+1. Install Flutter and create a Firebase project with Authentication and Storage enabled.
+2. Add your own `google-services.json` (Android) or `GoogleService-Info.plist` (iOS) to the platform folders.
+3. Fetch packages and start the app:
+
+```
+flutter pub get
+flutter run
+```
+
+## Project layout
+
+- `lib/main.dart` starts Firebase and the app, `lib/routes.dart` lists the named routes.
+- `lib/screens/home` shows the lost items and `lib/screens/upload` lets someone post a found item with a photo.
+- `lib/screens/sign_in`, `sign_up` and `forgot_password` handle authentication.
+- `lib/components/` has the widgets shared between screens.
+
+## Tests
+
+```
+flutter test
+```
