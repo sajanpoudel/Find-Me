@@ -7,6 +7,7 @@ import 'package:mobileapp/size_config.dart';
 
 import '../../../constants.dart';
 
+/// Main content of the forgot password screen.
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -43,6 +44,7 @@ class Body extends StatelessWidget {
   }
 }
 
+/// The forgot pass form used on the forgot password screen.
 class ForgotPassForm extends StatefulWidget {
   const ForgotPassForm({Key? key}) : super(key: key);
 
