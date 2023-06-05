@@ -4,6 +4,7 @@ import 'package:mobileapp/screens/home/items.dart';
 import '../../../size_config.dart';
 import 'home_header.dart';
 
+/// Main content of the home screen.
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
