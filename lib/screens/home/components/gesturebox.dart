@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Color colorall = const Color(0xFF66a5ad);
 
+/// The gesture container used on the home screen.
 class GestureContainer extends StatelessWidget {
   final Function? ontap;
   final Image? image;
