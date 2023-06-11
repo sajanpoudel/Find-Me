@@ -12,6 +12,7 @@ TextStyle ktextStyle = GoogleFonts.lato(
         color: Colors.black87));
 
 // ignore: must_be_immutable
+/// The detail page.
 class DetailPage extends StatelessWidget {
   String? imgUrl;
   String? itemName;
