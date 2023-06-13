@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:mobileapp/screens/home/detailspage.dart';
 import 'components/gesturebox.dart';
 
+/// The items used on the home screen.
 class Items extends StatefulWidget {
   const Items({Key? key}) : super(key: key);
 
