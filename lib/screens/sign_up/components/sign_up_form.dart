@@ -12,6 +12,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
+/// The sign up form used on the sign up screen.
 class SignUpForm extends StatefulWidget {
   static const String id = 'RegisterScreen';
   const SignUpForm({Key? key}) : super(key: key);
