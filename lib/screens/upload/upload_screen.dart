@@ -21,6 +21,7 @@ const kTextFieldDecoration = InputDecoration(
   ),
 );
 
+/// The upload item used on the upload screen.
 class UploadItem extends StatefulWidget {
   static String routeName = "/upload";
   const UploadItem({Key? key}) : super(key: key);
