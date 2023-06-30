@@ -11,15 +11,14 @@ TextStyle ktextStyle = GoogleFonts.lato(
         letterSpacing: 1.15,
         color: Colors.black87));
 
-// ignore: must_be_immutable
 /// The detail page.
 class DetailPage extends StatelessWidget {
-  String? imgUrl;
-  String? itemName;
-  String? foundby;
-  String? contact;
-  String? des;
-  DetailPage(
+  final String? imgUrl;
+  final String? itemName;
+  final String? foundby;
+  final String? contact;
+  final String? des;
+  const DetailPage(
       {Key? key,
       this.imgUrl,
       this.itemName,
