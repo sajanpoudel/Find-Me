@@ -120,7 +120,7 @@ class _SignUpFormState extends State<SignUpForm> {
         labelText: "Email",
         hintText: "Enter your email address",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/mail.svg"),
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/mail.svg"),
       ),
     );
   }
@@ -151,7 +151,7 @@ class _SignUpFormState extends State<SignUpForm> {
         labelText: "Password",
         hintText: "Enter your password",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/lock.svg"),
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/lock.svg"),
       ),
     );
   }
@@ -182,7 +182,7 @@ class _SignUpFormState extends State<SignUpForm> {
         labelText: "Confirm Password",
         hintText: "Re-enter your password",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/lock.svg"),
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/lock.svg"),
       ),
     );
   }
@@ -195,7 +195,7 @@ class _SignUpFormState extends State<SignUpForm> {
         labelText: "Full Name",
         hintText: "Enter your full name",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/User.svg"),
       ),
     );
   }

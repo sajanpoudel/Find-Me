@@ -96,7 +96,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
               labelText: "Email",
               hintText: "Enter your email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
           ),
           SizedBox(height: getProportionateScreenHeight(30)),
