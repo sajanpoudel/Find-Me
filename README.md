@@ -20,5 +20,4 @@ We built this app by using flutter, Firestore, Google map API, Dart, 3D graphics
 In order to monitor exactly where the individual found the item, we intend to integrate the Google Maps function in the near future. For the various products, we also intend to integrate the meta data option. To filter and display items within a certain distance, we might implement a distance Search function.
 
 <h2>Demo: </h2>
-![original](https://raw.githubusercontent.com/sajanpoudel/Find-Me/fdb26be1225f94008774a311e140e0d938fceb58/videoplayback.gif)
-
+ ![image description](https://github.com/sajanpoudel/Find-Me/blob/demo-video/videoplayback.gif)
