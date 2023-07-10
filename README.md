@@ -12,7 +12,7 @@ Losing something valuable to you is not a good feeling. I lost my bag full of pe
 <h2>What it does? </h2>
 If someone finds anything, they just only submit a photo of it, add their name, and give the relevant information about the item. This would facilitate the app's use in making things more easily accessible. A phone call's feature to reach a person who has misplaced an item and found it is also available.
 
-<h2>How we built it?<h2/>
+<h2>How we built it?</h2>
 We built this app by using flutter, Firestore, Google map API, Dart, 3D graphics, Google login API and Firebase auth.
 
 
