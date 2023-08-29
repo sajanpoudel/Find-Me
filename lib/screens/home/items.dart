@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:mobileapp/screens/home/detailspage.dart';
+import 'package:mobileapp/screens/home/item_filter.dart';
 
 /// The items used on the home screen.
 class Items extends StatefulWidget {
-  const Items({Key? key}) : super(key: key);
+  const Items({Key? key, this.query = ''}) : super(key: key);
+
+  /// Search text. Only matching items are shown.
+  final String query;
 
   @override
   State<Items> createState() => _ItemsState();
@@ -55,15 +59,19 @@ class _ItemsState extends State<Items> {
           builder:
               (context, AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
+              final shown = filterItems(snapshot.data ?? [], widget.query);
+              if (shown.isEmpty) {
+                return const Center(child: Text('No items match your search'));
+              }
               return GridView.builder(
                 scrollDirection: Axis.vertical,
                 primary: false,
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
-                itemCount: snapshot.data?.length ?? 0,
+                itemCount: shown.length,
                 itemBuilder: (context, index) {
-                  final Map<String, dynamic> image = snapshot.data![index];
+                  final Map<String, dynamic> image = shown[index];
 
                   return GestureDetector(
                     onTap: () {

@@ -13,15 +13,17 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  String _query = '';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
         children: [
           SizedBox(height: getProportionateScreenHeight(20)),
-          const HomeHeader(),
+          HomeHeader(onSearch: (text) => setState(() => _query = text)),
           SizedBox(height: getProportionateScreenHeight(20)),
-          const Items(),
+          Items(query: _query),
           SizedBox(height: getProportionateScreenHeight(20)),
         ],
       ),
