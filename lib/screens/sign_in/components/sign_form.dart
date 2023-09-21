@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/components/custom_surfix_icon.dart';
 import 'package:mobileapp/components/form_error.dart';
+import 'package:mobileapp/helper/auth_messages.dart';
 import 'package:mobileapp/helper/keyboard.dart';
 import 'package:mobileapp/screens/forgot_password/forgot_password_screen.dart';
 import 'package:mobileapp/screens/login_success/login_success_screen.dart';
@@ -87,11 +88,16 @@ class _SignFormState extends State<SignForm> {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
                   KeyboardUtil.hideKeyboard(context);
-                  UserCredential existingUser =
-                      await _auth.signInWithEmailAndPassword(
-                          email: email!, password: password!);
+                  await _auth.signInWithEmailAndPassword(
+                      email: email!, password: password!);
+                  if (!mounted) return;
                   Navigator.pushNamed(context, LoginSuccessScreen.routeName);
                 }
+              } on FirebaseAuthException catch (e) {
+                debugPrint(e.toString());
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(authErrorMessage(e.code))));
               } catch (e) {
                 debugPrint(e.toString());
               }
