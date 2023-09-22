@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/components/custom_surfix_icon.dart';
 import 'package:mobileapp/components/default_button.dart';
 import 'package:mobileapp/components/form_error.dart';
+import 'package:mobileapp/helper/auth_messages.dart';
 import 'package:mobileapp/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -24,7 +25,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   String? email;
   String? password;
-  String? conform_password;
+  String? confirmPassword;
   String? fullName;
   String errorMessage = '';
   bool remember = false;
@@ -66,7 +67,7 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: getProportionateScreenHeight(28)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(28)),
-          buildConformPassFormField(),
+          buildConfirmPassFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(30)),
           DefaultButton(
@@ -75,12 +76,17 @@ class _SignUpFormState extends State<SignUpForm> {
               try {
                 if (_formKey.currentState!.validate()) {
                   // if all are valid then go to success screen
-                  UserCredential newUser =
-                      await _auth.createUserWithEmailAndPassword(
-                          email: email!, password: password!);
+                  await _auth.createUserWithEmailAndPassword(
+                      email: email!, password: password!);
                   addData();
+                  if (!mounted) return;
                   Navigator.pushNamed(context, HomeScreen.routeName);
                 }
+              } on FirebaseAuthException catch (e) {
+                debugPrint(e.toString());
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(authErrorMessage(e.code))));
               } catch (e) {
                 debugPrint(e.toString());
               }
@@ -153,17 +159,17 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
-  TextFormField buildConformPassFormField() {
+  TextFormField buildConfirmPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conform_password = newValue,
+      onSaved: (newValue) => confirmPassword = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
+        } else if (value.isNotEmpty && password == confirmPassword) {
           removeError(error: kMatchPassError);
         }
-        conform_password = value;
+        confirmPassword = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
