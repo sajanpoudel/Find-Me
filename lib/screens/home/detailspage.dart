@@ -60,78 +60,16 @@ class DetailPage extends StatelessWidget {
                       elevation: 10.0,
                       child: Column(
                         children: [
-                          Flexible(
-                            flex: 1,
-                            child: Row(
-                              children: [
-                                Flexible(
-                                  child: Text(
-                                    'Item Name: ',
-                                    style: ktextStyle,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Text(
-                                    itemName!,
-                                    style: ktextStyle,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          DetailRow(label: 'Item Name: ', value: itemName),
                           const SizedBox(height: 3.0),
-                          ////
-                          Flexible(
-                            flex: 1,
-                            child: Row(
-                              children: [
-                                Flexible(
-                                  child: Text(
-                                    'Found By: ',
-                                    style: ktextStyle,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Text(
-                                    foundby!,
-                                    style: ktextStyle,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          DetailRow(label: 'Found By: ', value: foundby),
                           const SizedBox(height: 3.0),
-
-                          ///
-                          Flexible(
-                            flex: 1,
-                            child: Row(
-                              children: [
-                                Flexible(
-                                  child: Text(
-                                    'Contact: ',
-                                    style: ktextStyle,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Text(
-                                    contact!,
-                                    style: ktextStyle,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-
+                          DetailRow(label: 'Contact: ', value: contact),
                           const SizedBox(height: 3.0),
-                          //
                           Flexible(
                             flex: 1,
                             child: Text(
-                              des!,
+                              des ?? '',
                               style: ktextStyle,
                               textAlign: TextAlign.start,
                             ),
@@ -180,6 +118,38 @@ class DetailPage extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// One line of the detail card: a label and its value.
+class DetailRow extends StatelessWidget {
+  const DetailRow({super.key, required this.label, required this.value});
+
+  final String label;
+  final String? value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      flex: 1,
+      child: Row(
+        children: [
+          Flexible(
+            child: Text(
+              label,
+              style: ktextStyle,
+              textAlign: TextAlign.start,
+            ),
+          ),
+          Flexible(
+            child: Text(
+              value ?? '',
+              style: ktextStyle,
+            ),
+          ),
+        ],
       ),
     );
   }
