@@ -29,95 +29,74 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Flexible(
-            flex: 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Flexible(
-                  flex: 2,
-                  child: Card(
-                    clipBehavior: null,
-                    child: Image.network(
-                      imgUrl!,
-                      fit: BoxFit.cover,
+    return Scaffold(
+      appBar: AppBar(title: Text(itemName ?? 'Item')),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (imgUrl != null)
+                Image.network(
+                  imgUrl!,
+                  height: 280,
+                  fit: BoxFit.cover,
+                ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Card(
+                  elevation: 10.0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        DetailRow(label: 'Item Name: ', value: itemName),
+                        const SizedBox(height: 3.0),
+                        DetailRow(label: 'Found By: ', value: foundby),
+                        const SizedBox(height: 3.0),
+                        DetailRow(label: 'Contact: ', value: contact),
+                        const SizedBox(height: 3.0),
+                        Text(des ?? '', style: ktextStyle),
+                        const SizedBox(height: 40.0),
+                        Text("Contact Now If It Belongs To You",
+                            style: ktextStyle),
+                        const SizedBox(height: 15.0),
+                        Center(child: _callButton()),
+                      ],
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 40.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Flexible(
-                    flex: 2,
-                    child: Card(
-                      elevation: 10.0,
-                      child: Column(
-                        children: [
-                          DetailRow(label: 'Item Name: ', value: itemName),
-                          const SizedBox(height: 3.0),
-                          DetailRow(label: 'Found By: ', value: foundby),
-                          const SizedBox(height: 3.0),
-                          DetailRow(label: 'Contact: ', value: contact),
-                          const SizedBox(height: 3.0),
-                          Flexible(
-                            flex: 1,
-                            child: Text(
-                              des ?? '',
-                              style: ktextStyle,
-                              textAlign: TextAlign.start,
-                            ),
-                          ),
-                          const SizedBox(height: 120.0),
-                          Flexible(
-                            child: Text(
-                              "Contact Now If It Belongs To You",
-                              style: ktextStyle,
-                            ),
-                          ),
-                          const SizedBox(height: 15.0),
-                          TextButton(
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                foregroundColor: Colors.white,
-                                backgroundColor: kPrimaryColor,
-                              ),
-                              onPressed: () async {
-                                await FlutterPhoneDirectCaller.callNumber(
-                                    contact!);
-                              },
-                              child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Call Now",
-                                    style: TextStyle(fontSize: 25.0),
-                                  ),
-                                  SizedBox(
-                                    width: 15.0,
-                                  ),
-                                  Icon(
-                                    Icons.call,
-                                    size: 25.0,
-                                  ),
-                                ],
-                              ))
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
+              ),
+            ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// The call button. It is switched off when the finder left no number.
+  Widget _callButton() {
+    final number = contact?.trim() ?? '';
+    return TextButton(
+      style: TextButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        foregroundColor: Colors.white,
+        backgroundColor: kPrimaryColor,
+        disabledBackgroundColor: Colors.grey,
+      ),
+      onPressed: number.isEmpty
+          ? null
+          : () async {
+              await FlutterPhoneDirectCaller.callNumber(number);
+            },
+      child: const Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text("Call Now", style: TextStyle(fontSize: 25.0)),
+          SizedBox(width: 15.0),
+          Icon(Icons.call, size: 25.0),
+        ],
       ),
     );
   }
@@ -132,25 +111,12 @@ class DetailRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      flex: 1,
-      child: Row(
-        children: [
-          Flexible(
-            child: Text(
-              label,
-              style: ktextStyle,
-              textAlign: TextAlign.start,
-            ),
-          ),
-          Flexible(
-            child: Text(
-              value ?? '',
-              style: ktextStyle,
-            ),
-          ),
-        ],
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label, style: ktextStyle),
+        Expanded(child: Text(value ?? '', style: ktextStyle)),
+      ],
     );
   }
 }
